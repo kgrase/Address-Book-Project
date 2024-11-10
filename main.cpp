@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm> // For sort
 #include <fstream>
 #include "addressBookType.h"
 
@@ -7,14 +9,14 @@
 // Function to display the menu
 int showMenu() {
     int choice;
-    std::cout << "\nOnline Address Book\n";
-    std::cout << "1 - Display all entries\n";
-    std::cout << "2 - Display an entry by person's name\n";
-    std::cout << "3 - Display all entries with a given birth month\n";
-    std::cout << "4 - Display all entries with a given relationship\n";
-    std::cout << "5 - Quit\n";
-    std::cout << "Enter your choice: ";
-    std::cin >> choice;
+    cout << "\nOnline Address Book\n";
+    cout << "1 - Display all entries\n";
+    cout << "2 - Display an entry by person's name\n";
+    cout << "3 - Display all entries with a given birth month\n";
+    cout << "4 - Display all entries with a given relationship\n";
+    cout << "5 - Quit\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
     return choice;
 }
 
@@ -76,30 +78,32 @@ int main() {
         case 2: {
             std::string lastName;
             std::string firstName;
-            std::cout << "Enter last name: ";
-            std::cin >> lastName;
-            myAddressBook.findPerson(lastName);
+            cout << "Enter last name: ";
+            cin >> lastName;
+            cout << "Enter first name: ";
+            cin >> firstName;
+            myAddressBook.findPerson(lastName, firstName);
             break;
         }
         case 3: {
             int month;
-            std::cout << "Enter birth month: ";
-            std::cin >> month;
+            cout << "Enter birth month: ";
+            cin >> month;
             myAddressBook.findBirthdays(month);
             break;
         }
         case 4: {
-            std::string relationship;
-            std::cout << "Enter relationship (Friend, Family, Business): ";
-            std::cin >> relationship;
+            string relationship;
+            cout << "Enter relationship (Friend, Family, Business): ";
+            cin >> relationship;
             myAddressBook.findRelations(relationship);
             break;
         }
         case 5:
-            std::cout << "Exiting program..." << std::endl;
+            cout << "Exiting program..." << endl;
             break;
         default:
-            std::cout << "Invalid choice. Please try again." << std::endl;
+            cout << "Invalid choice. Please try again." << endl;
         }
     } while (choice != 5);
 
