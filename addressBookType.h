@@ -1,6 +1,7 @@
 #ifndef __ADDRESSBOOKTYPE_H__
 #define __ADDRESSBOOKTYPE_H__
 
+#include <fstream>
 #include "extPersonType.h"
 #include "orderedLinkedList.h"
 
@@ -10,7 +11,16 @@ public:
     void initEntry(const extPersonType& person) {addEntry(person);}
 
     // Add a new entry
+    void addEntry();
+
+    // Add a new entry
     void addEntry(const extPersonType& person) {insert(person);}
+
+    // Delete an entry
+    void deleteEntry(string lastName, string firstName);
+
+    // Save data
+    void saveData(std::ofstream& dataFile);
 
     // Display all entries
     void print() const;

@@ -13,12 +13,17 @@ class addressType {
 
     /* setters */
     public:
-    void setStreetAddress(std::string streetAddress);
     void setCity(std::string city);
     void setState(std::string state);
-    void setZipcode(int zipcode);
+    void setZipcode(int zip);
     void setAddress(std::string address);
     /* end setters */
+
+    public:
+    std::string getAddress() const {return streetAddress;}
+    std::string getCity() const {return City;}
+    std::string getState() const {return State;}
+    int getZipcode() const {return zipcode;}
 
     public:
     friend std::ostream& operator << (std::ostream& os, const addressType& address);

@@ -35,7 +35,8 @@ class extPersonType: public personType
     public:
     std::string getPhoneNumber() const {return phoneNumber;}
     std::string getRelationship() const {return relationship;}
-    int getBirthMonth() const {return this->birthdate.getMonth();}
+    dateType getBirthDate() const {return this->birthdate;}
+    addressType getAddress() const {return this->address;}
 
     public:
     bool operator >= (const extPersonType& other) const;

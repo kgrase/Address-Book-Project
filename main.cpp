@@ -14,7 +14,9 @@ int showMenu() {
     cout << "2 - Display an entry by person's name\n";
     cout << "3 - Display all entries with a given birth month\n";
     cout << "4 - Display all entries with a given relationship\n";
-    cout << "5 - Quit\n";
+    cout << "5 - Delete an entry by person's name\n";
+    cout << "6 - Add a new person.\n";
+    cout << "7 - Quit\n";
     cout << "Enter your choice: ";
     cin >> choice;
     return choice;
@@ -67,7 +69,7 @@ int main() {
     }
 
     dataFile.close(); // Close the file
-
+    std::ofstream output;
     int choice;
     do {
         choice = showMenu();
@@ -99,13 +101,33 @@ int main() {
             myAddressBook.findRelations(relationship);
             break;
         }
-        case 5:
+        case 5: {
+            std::string lastName;
+            std::string firstName;
+            cout << "Enter last name: ";
+            cin >> lastName;
+            cout << "Enter first name: ";
+            cin >> firstName;
+            myAddressBook.deleteEntry(lastName, firstName);
+            break;
+        }
+        case 6:
+            myAddressBook.addEntry();
+            break;
+        case 7:
+            output.open("AddressBookData 2.txt");
+            if (!output.is_open()) {
+                std::cerr << "Error saving data!" << std::endl;
+                return 1;
+            }
+            myAddressBook.saveData(output);
+            output.close();
             cout << "Exiting program..." << endl;
             break;
         default:
             cout << "Invalid choice. Please try again." << endl;
         }
-    } while (choice != 5);
+    } while (choice != 7);
 
     return 0;
 }

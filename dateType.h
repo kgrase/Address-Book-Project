@@ -12,6 +12,8 @@ class dateType {
    bool checkLeapYear(int year) const;
    int isLastDayofMonth(int m, int y) const;
    int getMonth() const {return month;}
+   int getDay() const {return day;}
+   int getYear() const {return year;}
 
    void setDate(int m, int d, int y);
 
@@ -22,7 +24,7 @@ class dateType {
    }
 
    private:
-   int  month;
+   int month;
    int day;
    int year;
 };

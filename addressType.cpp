@@ -8,10 +8,6 @@ addressType::addressType(std::string streetAddress, std::string city, std::strin
     this->zipcode = zipcode;
 }
 
-void addressType::setStreetAddress(std::string streetAddress) {
-    this->streetAddress = streetAddress;
-}
-
 void addressType::setCity(std::string city) {
     this->City = city;
 }
@@ -28,9 +24,9 @@ void addressType::setState(std::string state) {
     }
 }
 
-void addressType::setZipcode(int zipcode) {
-    if (zipcode >= 11111 && zipcode <= 99999) {
-        this->zipcode = zipcode;
+void addressType::setZipcode(int zip) {
+    if (zip >= 11111 && zip <= 99999) {
+        this->zipcode = zip;
     }
     else {
         std::cout << "Zipcode length should between 11111 and 99999 !" << std::endl;
