@@ -16,7 +16,7 @@ I learned how to implement a linked list-based solution and understood how it di
 
 ## How to Compile
 
-To compile all `.cpp` files in your project, use the following command:
+To compile all `.cpp` files in the project, use the following command:
 
 ```bash
 g++ $(find . -name "*.cpp") -o main
